@@ -14,20 +14,17 @@ class AuthBloc extends Bloc<AuthEvent, AuthLoginState> {
       state.copyWith(requestState: RequestState.loading);
       bool loggedIn = await loginUseCase.call(event.email, event.password);
 
-      print(loggedIn);
-      print(loggedIn);
-      print(loggedIn);
       if (loggedIn) {
-        state.copyWith(
+        emit(state.copyWith(
           loggedIn: true,
           requestState: RequestState.success,
-        );
+        ));
       } else {
-        state.copyWith(
+        emit(state.copyWith(
           loggedIn: false,
           requestState: RequestState.error,
           errorMessage: "Something went wrong",
-        );
+        ));
       }
     });
   }
