@@ -1,6 +1,5 @@
 part of 'auth_bloc.dart';
 
-
 class AuthLoginState {
   RequestState? requestState;
   bool? loggedIn;

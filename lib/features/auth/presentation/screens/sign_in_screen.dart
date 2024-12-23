@@ -1,4 +1,5 @@
 import 'package:ecommerce_online_c11/config/routes_manager/routes.dart';
+import 'package:ecommerce_online_c11/core/api/api_manager.dart';
 import 'package:ecommerce_online_c11/core/utils/assets_manager.dart';
 import 'package:ecommerce_online_c11/core/utils/color_manager.dart';
 import 'package:ecommerce_online_c11/core/utils/components/custom_elevated_button.dart';
@@ -10,7 +11,7 @@ import 'package:ecommerce_online_c11/core/utils/values_manager.dart';
 import 'package:ecommerce_online_c11/features/auth/data/data_source/remote/auth_remote_ds_impl.dart';
 import 'package:ecommerce_online_c11/features/auth/data/repository/auth_repo_impl.dart';
 import 'package:ecommerce_online_c11/features/auth/domain/usecases/login_usecase.dart';
-import 'package:ecommerce_online_c11/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:ecommerce_online_c11/features/auth/presentation/bloc/login_bloc/auth_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -27,7 +28,7 @@ class SignInScreen extends StatelessWidget {
       create: (context) => AuthBloc(
         LoginUseCase(
           AuthRepoImpl(
-            AuthRemoteDsImpl(),
+            AuthRemoteDsImpl(ApiManager()),
           ),
         ),
       ),
@@ -39,12 +40,8 @@ class SignInScreen extends StatelessWidget {
             Navigator.pushNamedAndRemoveUntil(
                 context, Routes.mainRoute, (r) => false);
           }
-
-          if (state.loggedIn ==true) {
-            print("navigate ");
-
-            Navigator.pushNamedAndRemoveUntil(
-                context, Routes.mainRoute, (r) => false);
+          if (state.requestState == RequestState.error) {
+            SnackBar(content: Text(state.errorMessage ?? ""));
           }
         },
         builder: (context, state) {
@@ -65,7 +62,7 @@ class SignInScreen extends StatelessWidget {
                         height: AppSize.s40.h,
                       ),
                       Text(
-                        'Welcome Back To Route',
+                        'Welcome Back To Ecomerce',
                         style: getBoldStyle(color: ColorManager.white)
                             .copyWith(fontSize: FontSize.s24.sp),
                       ),
