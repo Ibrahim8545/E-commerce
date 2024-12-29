@@ -1,10 +1,14 @@
 import 'package:dio/dio.dart';
 import 'package:ecommerce_online_c11/core/utils/constants_manager.dart';
+import 'package:flutter/material.dart';
 
 class ApiManager {
   late Dio dio;
   ApiManager() {
     dio = Dio();
+    dio.interceptors.add(LogInterceptor(
+      logPrint: (object) => debugPrint(object.toString()),
+    ));
   }
 
   Future<Response> getData(

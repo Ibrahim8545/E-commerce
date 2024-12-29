@@ -1,4 +1,3 @@
-
 import 'package:ecommerce_online_c11/config/routes_manager/routes.dart';
 import 'package:ecommerce_online_c11/features/auth/presentation/screens/sign_in_screen.dart';
 import 'package:ecommerce_online_c11/features/auth/presentation/screens/sign_up_screen.dart';
@@ -11,7 +10,6 @@ import 'package:flutter/material.dart';
 class RouteGenerator {
   static Route<dynamic> getRoute(RouteSettings settings) {
     switch (settings.name) {
-
       case Routes.cartRoute:
         return MaterialPageRoute(builder: (_) => const CartScreen());
       case Routes.mainRoute:
@@ -24,10 +22,10 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const ProductDetails());
 
       case Routes.signInRoute:
-        return MaterialPageRoute(builder: (_) =>  SignInScreen());
+        return MaterialPageRoute(builder: (_) => SignInScreen());
 
       case Routes.signUpRoute:
-        return MaterialPageRoute(builder: (_) => const SignUpScreen());
+        return MaterialPageRoute(builder: (_) => SignUpScreen());
       default:
         return unDefinedRoute();
     }

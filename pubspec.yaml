@@ -45,6 +45,7 @@ dependencies:
   flutter_native_splash:
   readmore:
   smooth_page_indicator:
+  shared_preferences: ^2.3.4
 
 dev_dependencies:
   flutter_test:

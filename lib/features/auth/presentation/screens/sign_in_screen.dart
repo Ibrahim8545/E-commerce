@@ -41,7 +41,20 @@ class SignInScreen extends StatelessWidget {
                 context, Routes.mainRoute, (r) => false);
           }
           if (state.requestState == RequestState.error) {
-            SnackBar(content: Text(state.errorMessage ?? ""));
+            showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    title: Text('email or password is wrong' ?? ""),
+                    actions: [
+                      TextButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: Text("ok"))
+                    ],
+                  );
+                });
           }
         },
         builder: (context, state) {
