@@ -8,8 +8,6 @@ class LoginEvent extends AuthEvent {
   LoginEvent(this.email, this.password);
 }
 
-class SignupEvent extends AuthEvent {}
-
 class ForgetPasswordEvent extends AuthEvent {}
 
 class ShowPassword extends AuthEvent {}
