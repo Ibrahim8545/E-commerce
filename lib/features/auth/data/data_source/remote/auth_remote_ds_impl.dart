@@ -1,10 +1,12 @@
 import 'package:ecommerce_online_c11/core/api/api_manager.dart';
 import 'package:ecommerce_online_c11/core/api/end_points.dart';
 import 'package:ecommerce_online_c11/core/api/status_codes.dart';
+import 'package:ecommerce_online_c11/core/cache/shared_pref.dart';
 import 'package:ecommerce_online_c11/core/exceptions/failuers.dart';
 import 'package:ecommerce_online_c11/features/auth/data/data_source/remote/auth_remote_ds.dart';
 import 'package:ecommerce_online_c11/features/auth/data/models/user_model.dart';
 import 'package:ecommerce_online_c11/features/auth/domain/entity/sign_up_entity.dart';
+import 'package:flutter_svg/svg.dart';
 
 class AuthRemoteDsImpl implements AuthRemoteDs {
   ApiManager apiManager;
@@ -17,6 +19,8 @@ class AuthRemoteDsImpl implements AuthRemoteDs {
           body: {"email": email, "password": password});
 
       if (response.statusCode == StatusCodes.success) {
+        print(response.data['token']);
+        await CacheHelper.setData<String>('token', response.data['token']);
         return true;
       }
       return false;
