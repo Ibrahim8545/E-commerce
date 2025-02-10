@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce_online_c11/core/utils/assets_manager.dart';
 import 'package:ecommerce_online_c11/core/utils/color_manager.dart';
 import 'package:ecommerce_online_c11/core/utils/styles_manager.dart';
-import 'package:ecommerce_online_c11/features/main_layout/categories/data/models/category_model.dart';
+import 'package:ecommerce_online_c11/features/main_layout/home/data/models/category_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -52,7 +52,7 @@ class CustomCategoryWidget extends StatelessWidget {
         // ),
         SizedBox(height: 8.h),
         Text(
-          "men's fashion",
+          categorydata.name ?? '',
           style: getRegularStyle(color: ColorManager.darkBlue, fontSize: 14.sp),
         ),
       ],

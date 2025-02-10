@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:ecommerce_online_c11/features/auth/presentation/bloc/login_bloc/auth_bloc.dart';
-import 'package:ecommerce_online_c11/features/main_layout/categories/data/models/category_model.dart';
-import 'package:ecommerce_online_c11/features/main_layout/categories/domain/usecases/category_use_cases.dart';
+import 'package:ecommerce_online_c11/features/main_layout/home/data/models/category_model.dart';
+import 'package:ecommerce_online_c11/features/main_layout/home/domain/usecases/category_use_cases.dart';
 import 'package:equatable/equatable.dart';
 
 part 'category_event.dart';
