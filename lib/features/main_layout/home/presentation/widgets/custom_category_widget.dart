@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomCategoryWidget extends StatelessWidget {
-  Data categorydata;
+  CategoryData categorydata;
   CustomCategoryWidget({required this.categorydata, super.key});
 
   @override

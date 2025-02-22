@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/flutter/eccomerce_app/lib/features/auth/presentation/bloc/signup_bloc",
-      "program": "d:/flutter/eccomerce_app/lib/features/auth/presentation/bloc/signup_bloc/build/Debug/outDebug",
+      "cwd": "d:/flutter/eccomerce_app/lib/features/main_layout/categories",
+      "program": "d:/flutter/eccomerce_app/lib/features/main_layout/categories/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

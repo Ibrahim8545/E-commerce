@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:ecommerce_online_c11/core/api/api_manager.dart';
 import 'package:ecommerce_online_c11/core/utils/assets_manager.dart';
+import 'package:ecommerce_online_c11/di.dart';
 import 'package:ecommerce_online_c11/features/main_layout/home/data/data_source/remote/category_repo_datasource_imp.dart';
 import 'package:ecommerce_online_c11/features/main_layout/home/data/repository/category_repo_imp.dart';
 import 'package:ecommerce_online_c11/features/main_layout/home/domain/repositrory/repo.dart';
@@ -54,10 +55,8 @@ class _HomeTabState extends State<HomeTab> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => CategoryBloc(GetCategoriesUseCase(
-          CategoryRepoImp(CategoryRepoDatasourceImp(ApiManager()))))
-        ..add(GetCategoriesEvent()),
-      child: BlocConsumer<CategoryBloc, CategoryState>(
+      create: (context) => getIt<HomeBloc>()..add(GetCategoriesEvent()),
+      child: BlocConsumer<HomeBloc, HomeState>(
         listener: (context, state) {
           // TODO: implement listener
         },
